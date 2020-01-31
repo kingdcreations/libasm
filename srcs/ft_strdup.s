@@ -6,7 +6,7 @@
 ;   By: tmarcon <marvin@le-101.fr>                 +:+   +:    +:    +:+       ;
 ;                                                 #+#   #+    #+    #+#        ;
 ;   Created: 2020/01/14 13:54:59 by tmarcon      #+#   ##    ##    #+#         ;
-;   Updated: 2020/01/31 13:13:52 by tmarcon     ###    #+. /#+    ###.fr       ;
+;   Updated: 2020/01/31 14:22:18 by tmarcon     ###    #+. /#+    ###.fr       ;
 ;                                                         /                    ;
 ;                                                        /                     ;
 ; **************************************************************************** ;
@@ -25,11 +25,13 @@ _ft_strdup:
 	inc		rdi
 	call	_malloc
 	cmp		rax, 0
-	je		_end
+	je		_error
 	pop		rsi
 
 	mov		rdi, rax
 	call	_ft_strcpy
+	ret
 
-_end:
+_error:
+	pop rdi
 	ret
